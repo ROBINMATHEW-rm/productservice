@@ -23,8 +23,8 @@ public Product dtoToEntity(ProductData productData){
 }
     public ProductData entityToDto(Product product){
         ProductData productData = new ProductData();
-        product.setName(productData.getProductName());
-        product.setPrice(productData.getProductPrice());
+        productData.setProductName(productData.getProductName());
+        productData.setProductPrice(productData.getProductPrice());
         return productData;
     }
     public List<ProductData> toDtoList(List<Product> productList){

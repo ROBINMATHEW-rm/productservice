@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("v1")
+//@RequestMapping("v1")
 @RestController
 public class ProductController {
     private final ProductService productService;
@@ -18,7 +18,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @PostMapping("/product-add")
+    @PostMapping("v1/product-add")
     public ResponseEntity<?> productAdd(@RequestBody ProductData productData){
         ProductData result=productService.productAdd(productData);
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
