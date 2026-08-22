@@ -1,5 +1,6 @@
 package com.productservice.service;
 
+import com.productservice.dto.ApiResponse;
 import com.productservice.exception.ProductNotFoundException;
 import com.productservice.dto.ProductRequest;
 import com.productservice.dto.ProductResponse;
@@ -49,9 +50,16 @@ public class ProductService {
         return mapToResponse(product);
     }
 
-    public void deleteProduct(String id) {
+    public ApiResponse deleteProduct(String id) {
+
+        if (!productRepository.existsById(id)) {
+            throw new ProductNotFoundException(
+                    "Product not found with id: " + id);
+        }
 
         productRepository.deleteById(id);
+
+        return new ApiResponse("Product deleted successfully");
     }
 
     private ProductResponse mapToResponse(Product product) {

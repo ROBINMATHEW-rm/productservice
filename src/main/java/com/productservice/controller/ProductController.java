@@ -1,5 +1,6 @@
 package com.productservice.controller;
 
+import com.productservice.dto.ApiResponse;
 import com.productservice.dto.ProductRequest;
 import com.productservice.dto.ProductResponse;
 import com.productservice.service.ProductService;
@@ -40,11 +41,13 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProduct(
+    public ResponseEntity<ApiResponse> deleteProduct(
             @PathVariable String id) {
 
-        productService.deleteProduct(id);
+        ApiResponse response = productService.deleteProduct(id);
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(response);
     }
 }
