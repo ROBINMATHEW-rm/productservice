@@ -40,6 +40,14 @@ public class ProductController {
         return ResponseEntity.ok(productService.getProductById(id));
     }
 
+    @GetMapping("/name/{name}")
+    public ResponseEntity<ProductResponse> getProductByName(
+            @PathVariable String name) {
+
+        return ResponseEntity.ok(
+                productService.getProductByName(name));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse> deleteProduct(
             @PathVariable String id) {

@@ -62,6 +62,16 @@ public class ProductService {
         return new ApiResponse("Product deleted successfully");
     }
 
+    public ProductResponse getProductByName(String name) {
+
+        Product product = productRepository.findByName(name)
+                .orElseThrow(() ->
+                        new ProductNotFoundException(
+                                "Product not found with name: " + name));
+
+        return mapToResponse(product);
+    }
+
     private ProductResponse mapToResponse(Product product) {
 
         return new ProductResponse(
