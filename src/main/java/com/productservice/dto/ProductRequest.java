@@ -18,7 +18,7 @@ public class ProductRequest {
     @NotBlank(message = "Product name is required")
     @Size(min = 3, max = 100,
             message = "Product name must be between 3 and 100 characters")
-    private String name;
+    private String product_name;
 
     @NotBlank(message = "Description is required")
     @Size(max = 500,

@@ -21,7 +21,7 @@ public class ProductService {
 
         Product product = new Product();
 
-        product.setName(request.getName());
+        product.setName(request.getProduct_name());
         product.setDescription(request.getDescription());
         product.setCategory(request.getCategory());
         product.setPrice(request.getPrice());
